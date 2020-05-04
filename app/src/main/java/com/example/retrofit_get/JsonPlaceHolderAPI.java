@@ -25,5 +25,7 @@ public interface JsonPlaceHolderAPI {
     @GET("posts/{id}/comments")
     Call<List<Comment>> getComments(@Path("id") int postId);
 
+    @GET
+    Call<List<Comment>> getComments(@Url String url);
 
 }
