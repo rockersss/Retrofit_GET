@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,9 +29,11 @@ public class MainActivity extends AppCompatActivity {
 
         textViewResult = findViewById(R.id.text_view_result);
 
+        Gson gson = new GsonBuilder().serializeNulls().create();
+
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("https://jsonplaceholder.typicode.com/")
-                .addConverterFactory(GsonConverterFactory.create())
+                .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
 
          jsonPlaceHolderAPI = retrofit.create(JsonPlaceHolderAPI.class);
@@ -36,7 +41,8 @@ public class MainActivity extends AppCompatActivity {
 //         getPosts();
 //         getComments();
 //         createPost();
-           updatePost();
+//         updatePost();
+           deletePost();
 
 //        Call<List<Post>> call = jsonPlaceHolderAPI.getPosts();
 //
@@ -204,4 +210,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void deletePost(){
+        Call<Void> call = jsonPlaceHolderAPI.deletePost(5);
+
+        call.enqueue(new Callback<Void>() {
+            @Override
+            public void onResponse(Call<Void> call, Response<Void> response) {
+                textViewResult.setText("Code: " + response.code());
+            }
+
+            @Override
+            public void onFailure(Call<Void> call, Throwable t) {
+
+            }
+        });
+    }
+
 }
