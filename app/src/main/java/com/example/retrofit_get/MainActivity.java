@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 //        });
     }
     private void getPosts(){
-        Call<List<Post>> call = jsonPlaceHolderAPI.getPosts(4);
+        Call<List<Post>> call = jsonPlaceHolderAPI.getPosts(4,"id","desc");
 
         call.enqueue(new Callback<List<Post>>() {
             @Override
