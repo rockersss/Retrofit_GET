@@ -193,7 +193,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void updatePost(){
         Post post = new Post(12, null, "YoYo");
-        Call<Post> call = jsonPlaceHolderAPI.putPost("abc",5, post);
+
+        Map<String, String> headers = new HashMap<>();
+        headers.put("Map-Header1", "def");
+        headers.put("Map-Header2", "abc");
+        Call<Post> call = jsonPlaceHolderAPI.patchPost(headers,5, post);
         call.enqueue(new Callback<Post>() {
             @Override
             public void onResponse(Call<Post> call, Response<Post> response) {
