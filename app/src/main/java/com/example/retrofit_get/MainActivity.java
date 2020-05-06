@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
                 for (Post post : posts){
                     String content = "";
                     content += "User ID: " + post.getUserId() + "\n";
-                    content += "Job ID: " + post.getJobid() + "\n";
+                    content += "Job ID: " + post.getJobId() + "\n";
                     content += "Rating " + post.getRating() + "\n\n";
 
 

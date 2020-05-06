@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName;
 
 public class Post {
     private int userId;
-    private int jobid;
+    private int jobId;
     @SerializedName("rating")
     private int rating;
 
@@ -12,8 +12,8 @@ public class Post {
         return userId;
     }
 
-    public int getJobid() {
-        return jobid;
+    public int getJobId() {
+        return jobId;
     }
 
     public int getRating() {
