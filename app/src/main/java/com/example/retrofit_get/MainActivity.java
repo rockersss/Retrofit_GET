@@ -45,10 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
                 for (Post post : posts){
                     String content = "";
-                    content += "ID: " + post.getId() + "\n";
                     content += "User ID: " + post.getUserId() + "\n";
-                    content += "Title: " + post.getTitle() + "\n";
-                    content += "Text: " + post.getText() + "\n\n";
+                    content += "Job ID: " + post.getJobid() + "\n";
+                    content += "Rating " + post.getRating() + "\n\n";
+
 
                     textViewResult.append(content);
                 }

@@ -4,24 +4,19 @@ import com.google.gson.annotations.SerializedName;
 
 public class Post {
     private int userId;
-    private int id;
-    private String title;
-    @SerializedName("body")
-    private String text;
+    private int jobid;
+    @SerializedName("rating")
+    private int rating;
 
     public int getUserId() {
         return userId;
     }
 
-    public int getId() {
-        return id;
+    public int getJobid() {
+        return jobid;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getText() {
-        return text;
+    public int getRating() {
+        return rating;
     }
 }
